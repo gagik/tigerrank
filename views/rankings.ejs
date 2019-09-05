@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            window.userid = "<%- id %>";
+            socket = io();
+        </script>
+        <title>TigerRank - The Rankings</title>
+        <link rel="stylesheet" href="/assets/table.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
+        <script
+  src="https://code.jquery.com/color/jquery.color-2.1.2.min.js"
+  integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE="
+  crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="/assets/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+          :root {
+            --accent: <%- info.color %>;
+          }
+        </style>
+    </head>
+    <body class="row">
+        <nav>
+          <div class="grey darken-4 nav-wrapper">
+            <a href="/" class="brand-logo center hide-on-small-and-down"><i style="font-size:30px;color:var(--accent);margin-right:3px;" class="material-icons">looks_one</i><%- info.name %></a>
+            <ul id="nav-mobile" class="right">
+              <li><a class="grey darken-1 black-text btn modal-trigger" href="#complaint">Submit a Complaint</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div id="complaint" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <p>While maximum accuracy was attempted for all <%- names.length -%> entries of TigerRank, no system is perfect. If you think there was a mistake or if TigerRank did not meet your expectations, please leave feedback and means of contact for us to improve the system.</p>
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="netid" type="text" class="validate">
+                  <label for="netid">Your Net ID</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="complaint-msg" class="materialize-textarea"></textarea>
+                  <label for="complaint-msg">Your message here.</label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <a id="feedback" href="#!" class="modal-close waves-effect waves-green btn-flat">Send</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+        <div id="faq" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <p>
+              <h5>Frequently Asked Questions: </h5>
+              <b>Q:</b> How are rankings determined?<br />
+              <b>A:</b> The ranking process is holistic. <br /><br />
+
+              <b>Q:</b> What does my ranking mean?<br />
+              <b>A:</b> Higher is better. <br /><br />
+
+              <b>Q:</b> How often are the rankings updated?<br />
+              <b>A:</b> Whenever new information becomes available. <br /><br />
+
+              <b>Q:</b> I have a problem with my ranking. Who do I contact?<br />
+              <b>A:</b> File a complaint using the button on the upper right.  <br /><br />
+            </p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+        <center>
+          <h6 id="message"><b>Last updated</b>: Apr 21, 2019.<br /><br />
+          <% if(info.demo) { %>
+          <b>Note:</b> This is a less interactive version of TigerRank to demonstrate how it worked.<br>All names are randomly generated and do not represent real people.<br><br>For the sake of the demonstration, your name is <i>Russell Cherry</i> and your Net ID is: <i>russelcherry64</i>.
+          <% } %>
+        </h6>
+        </center><br>
+        <table class="col s12 offset-m1 m10 table shadow-z-1" id="rank-table">
+        <thead class="grey darken-4">
+          <tr>
+            <th></th>
+            <th class="s12 white-text">Your current rank is: <b id="msg-rank">...</b></th>
+          </tr>
+          <tr>
+            <th class="white-text" style="text-align:center;" width="100px">Definitive Ranking</th>
+            <th class="white-text">Full Name</th> 
+          </tr>
+      </thead>
+      <tbody>
+          <% for(var i = 0; i < names.length; i++) { name = names[i].name; %>
+          <tr class="<%- names[i].id %>" id="r<%- i %>">
+            <th style="text-align:center;"><%- i+1 %></th>
+            <td><%- name %></td> 
+          </tr>
+          <% } %>
+        </tbody>
+        </table>
+        <div class="col s12">
+        <center>
+              <h6>Have any questions? Check out the <a class="darken-1 black-text modal-trigger" href="#faq"><span style="padding-bottom:30px;text-decoration: underline;">FAQ</span></a>.</h6>
+        </center>
+        </div>
+        <script src="/assets/script.js"></script>
+    </body>
+</html>

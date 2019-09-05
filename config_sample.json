@@ -1,0 +1,22 @@
+{
+    "info": {
+        "name": "TigerRank",
+        "domain": "https://localhost:8080/",
+        "desc": "The new, convenient way to view the definitive rankings of all students at Princeton University",
+        "titletext": "The definitive ranking of<br> all <b>Princeton</b> students",
+        "subtext": "TigerRank is the new, convenient way to view the definitive rankings of all students at Princeton University.",
+        "color": "#F15A22"
+    },
+    "MONGO": {
+        "uri": "mongodb://",
+        "db": "dbName"
+    },
+    "CAS": {
+        "enabled": false,
+        "demoUser": "russellcherry64",
+        "url": "https://localhost:8080/rankings",
+        "login":"https://fed.princeton.edu/cas/login",
+        "logout":"https://fed.princeton.edu/cas/logout",
+        "validate":"https://fed.princeton.edu/cas/validate"
+    }
+}

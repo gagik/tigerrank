@@ -1,0 +1,31 @@
+{
+  "name": "tigerranks",
+  "version": "1.0.0",
+  "description": "The definitive rankings of all Princeton students!",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "express-socket.io-session": "^1.3.5",
+    "http": "0.0.0",
+    "mongodb": "^3.2.3",
+    "passport": "^0.4.0",
+    "passport-custom": "^1.0.5",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gagikjs/tigerranks.git"
+  },
+  "author": "A Tiger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gagikjs/tigerranks/issues"
+  },
+  "homepage": "https://github.com/gagikjs/tigerranks#readme"
+}

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title><%- info.name %></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
+        <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+        <script src="script.js"></script>
+        <link href='landing.css' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <meta property="og:image" content="https://i.imgur.com/0hvWVX3.png" />
+        <meta property="og:url"                content="<%- info.domain %>" />
+        <meta property="og:type"               content="website" />
+        <meta property="og:title"              content="<%- info.name %>" />
+        <meta property="og:description"        content="<%- info.desc %>" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139040224-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-139040224-1');
+        </script>        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            :root {
+                --accent: <%- info.color %>;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="valign-wrapper centered">
+            <div id="rank-page" class="container valign">
+                <div style="font-size:80px;color:#222;" class="material-icons">looks_one</div>
+                <h3><%- info.titletext %></h>
+                <h6>TigerRank is the new, convenient way to view the definitive rankings<br>of all students at Princeton University.
+                <% if(info.demo) { %>
+                    <p>Check the idea behind it and more on <a href="https://github.com/gagik/tigerrank" style="color:#222; text-decoration: underline; font-weight: 700;">GitHub</a>!</p>
+                <% } %>
+                <a id="rank-button" href="/rankings" class="grey darken-4 white-text btn">FIND YOUR RANK</a>
+            </div>
+        </main>
+    </body>
+</html>
